@@ -1,7 +1,8 @@
 <script setup lang="ts">
-defineProps<{
+export type HelloWorldProps = {
   msg: string
-}>()
+}
+defineProps<HelloWorldProps>()
 </script>
 
 <template>
