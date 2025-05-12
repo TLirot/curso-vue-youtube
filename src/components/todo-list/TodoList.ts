@@ -11,6 +11,10 @@ export const useTodoList = () => {
         todoList.value = [];
     }
 
+    const removeTask = (index: number) => {
+        todoList.value.splice(index, 1);
+    }
+
     const removeLastItem = () => {
         if (todoList.value.length > 0) {
             todoList.value.pop();
@@ -21,6 +25,7 @@ export const useTodoList = () => {
         todoList,
         addToTodoList,
         clearTodoList,
+        removeTask,
         removeLastItem
     };
 }

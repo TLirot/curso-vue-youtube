@@ -5,6 +5,7 @@
         <ul>
             <li v-for="(todo, index) in todoList" :key="`${index}-${todo}`">
                 {{ todo }}
+                <button @click="removeTask(index)">Remove</button>
             </li>
         </ul>
         <button @click="clearTodoList">Clear list</button>
@@ -25,6 +26,6 @@ const handleClickAdd = () => {
     }
 };
 
-const {todoList, addToTodoList, clearTodoList, removeLastItem} = useTodoList();
+const {todoList, addToTodoList, clearTodoList, removeLastItem, removeTask} = useTodoList();
 </script>
 <style scoped></style>

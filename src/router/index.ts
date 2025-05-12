@@ -1,22 +1,25 @@
+import Counter from '@/components/counter/Counter.vue'
 import App from '@/views/App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import { AppRoutes } from './routes'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: App,
+      redirect: AppRoutes.Counter.path,
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (About.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import('../views/AboutView.vue'),
-    // },
+    {
+      path: AppRoutes.Counter.path,
+      name: AppRoutes.Counter.name,
+      component: () => import('../components/counter/Counter.vue')
+    },
+    {
+      path: AppRoutes.TodoList.path,
+      name: AppRoutes.TodoList.name,
+      component: () => import('../components/todo-list/TodoList.vue'),
+    },
   ],
 })
 
