@@ -1,4 +1,4 @@
-import TodoList from "@/components/todo-list/TodoList.vue";
+import TodoList from "@/modules/todo-list/view/TodoList.vue";
 import type { RouteRecordRaw } from "vue-router";
 
 type LocalRoute = Pick<RouteRecordRaw, 'path' | 'name' | 'children'>;

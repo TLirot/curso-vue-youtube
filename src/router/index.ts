@@ -1,4 +1,4 @@
-import Counter from '@/components/counter/Counter.vue'
+import Counter from '@/modules/counter/view/Counter.vue'
 import App from '@/views/App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { AppRoutes } from './routes'
@@ -13,12 +13,12 @@ const router = createRouter({
     {
       path: AppRoutes.Counter.path,
       name: AppRoutes.Counter.name,
-      component: () => import('../components/counter/Counter.vue')
+      component: () => import('../modules/counter/view/Counter.vue')
     },
     {
       path: AppRoutes.TodoList.path,
       name: AppRoutes.TodoList.name,
-      component: () => import('../components/todo-list/TodoList.vue'),
+      component: () => import('../modules/todo-list/view/TodoList.vue'),
     },
   ],
 })
