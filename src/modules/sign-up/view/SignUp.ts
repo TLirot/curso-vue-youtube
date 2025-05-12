@@ -1,8 +1,14 @@
+import { useUserStore } from '@/domain/stores/user.store';
 import * as yup from 'yup';
 
 export type SignUpFormValues = {
     name: string | undefined;
     email: string | undefined;
+}
+
+export type SignUpFormValuesValidated = {
+    name: string;
+    email: string;
 }
 
 export const useSignUp = () => {
@@ -17,9 +23,12 @@ export const useSignUp = () => {
         email: yup.string().email('Invalid email').required('Email is required'),
     })
 
-    const onSubmit = () => {
-        alert('Form submitted with values:');
+    const onSubmit = (values: SignUpFormValuesValidated) => {
+        useUserStore().setUser({
+            name: values.name,
+            email: values.email,
+        })
     }
 
-    return {validationSchema, initialValues, onSubmit};
+    return { validationSchema, initialValues, onSubmit };
 }

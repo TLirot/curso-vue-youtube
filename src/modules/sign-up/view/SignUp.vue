@@ -1,6 +1,6 @@
 <template>
     <h2>Login form</h2>
-    <Form :validation-schema="validationSchema" :initial-values="initialValues" @submit="onSubmit">
+    <Form :validation-schema="validationSchema" :initial-values="initialValues" @submit="handleSubmit">
         <div id="name-field" class="form-field">
             <label for="name">Name: </label>
             <Field type="text" name="name" id="name"/>
@@ -17,10 +17,14 @@
     </Form>
 </template>
 <script setup lang="ts">
-import { Form, Field, ErrorMessage } from 'vee-validate';
-import { useSignUp } from './SignUp';
+import { Form, Field, ErrorMessage, type SubmissionHandler, type GenericObject } from 'vee-validate';
+import { useSignUp, type SignUpFormValuesValidated } from './SignUp';
 
 const {validationSchema, initialValues, onSubmit} = useSignUp();
+
+const handleSubmit = (values: GenericObject) => {
+    onSubmit(values as SignUpFormValuesValidated);
+};
 
 </script>
 <style scoped>
