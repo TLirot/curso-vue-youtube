@@ -12,4 +12,8 @@ export const AppRoutes = {
         path: '/todo-list',
         name: 'todoList',
     } satisfies LocalRoute,
+    SignUp: {
+        path: '/sign-up',
+        name: 'signUp',
+    } satisfies LocalRoute,
 }

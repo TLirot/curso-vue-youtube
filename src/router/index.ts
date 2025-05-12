@@ -20,6 +20,11 @@ const router = createRouter({
       name: AppRoutes.TodoList.name,
       component: () => import('../modules/todo-list/view/TodoList.vue'),
     },
+     {
+      path: AppRoutes.SignUp.path,
+      name: AppRoutes.SignUp.name,
+      component: () => import('../modules/sign-up/view/SignUp.vue'),
+    },
   ],
 })
 
