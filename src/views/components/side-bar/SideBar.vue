@@ -15,13 +15,9 @@ import { useUserStore } from '@/domain/stores/user.store';
 import { AppRoutes } from '@/router/routes';
 import { computed, ref, watch } from 'vue';
 
-const { user: userStored } = useUserStore();
+const userStore = useUserStore();
 
-const user = ref(userStored);
-
-watch(() => userStored, (newUser) => {
-    user.value = newUser;
-});
+const user = computed(() => userStore.user)
 
 </script>
 <style scoped>
